@@ -29,15 +29,14 @@ for real use first, then written up properly.
 | [raygui-jnk](https://github.com/b12n-oss/raygui-jnk) | 24 raygui examples in jank: native Clojure compiled via C++/LLVM, with raygui built as an ordinary jank package. [Docs](https://b12n-oss.github.io/raygui-jnk/) |
 | [raylib-jnk](https://github.com/b12n-oss/raylib-jnk) | 209 raylib examples in jank, calling raylib directly through jank's C++ interop. [Docs](https://b12n-oss.github.io/raylib-jnk/) |
 | [raylib-clj](https://github.com/b12n-oss/raylib-clj) | 113 raylib examples in JVM Clojure, calling libraylib directly over coffi and JDK 22+'s Panama Foreign Function & Memory API. [Docs](https://b12n-oss.github.io/raylib-clj/) |
-| [docs-engine](https://github.com/b12n-oss/docs-engine) | The shared static-site generator behind the documentation for these projects. |
 | [b12n-oss.github.io](https://github.com/b12n-oss/b12n-oss.github.io) | The organization homepage, one hand-written file with no build step. |
 
 ## Documentation
 
 Most projects here publish through
-[docs-engine](https://github.com/b12n-oss/docs-engine), so they carry no site
-generator of their own. You write markdown plus a short config file, and each
-site lands at `b12n-oss.github.io/<repo>/`.
+[jlt-commons/docs-engine](https://github.com/jlt-commons/docs-engine), so
+they carry no site generator of their own. You write markdown plus a short
+config file, and each site lands at `b12n-oss.github.io/<repo>/`.
 
 Four sites publish that way today: [mcp-tkx](https://b12n-oss.github.io/mcp-tkx/)
 (fourteen pages covering getting started, architecture, the 2026-07-28
