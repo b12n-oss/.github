@@ -29,6 +29,9 @@ for real use first, then written up properly.
 | [raygui-jnk](https://github.com/b12n-oss/raygui-jnk) | 24 raygui examples in jank: native Clojure compiled via C++/LLVM, with raygui built as an ordinary jank package. [Docs](https://b12n-oss.github.io/raygui-jnk/) |
 | [raylib-jnk](https://github.com/b12n-oss/raylib-jnk) | 209 raylib examples in jank, calling raylib directly through jank's C++ interop. [Docs](https://b12n-oss.github.io/raylib-jnk/) |
 | [raylib-clj](https://github.com/b12n-oss/raylib-clj) | 113 raylib examples in JVM Clojure, calling libraylib directly over coffi and JDK 22+'s Panama Foreign Function & Memory API. [Docs](https://b12n-oss.github.io/raylib-clj/) |
+| [lambda-mvp-jlt](https://github.com/b12n-oss/lambda-mvp-jlt) | An AWS Lambda custom runtime in Jolt (native Clojure on Chez Scheme), with a bench tool for a cold-vs-warm boot-time comparison against your own AWS account. [Docs](https://b12n-oss.github.io/lambda-mvp-jlt/) |
+| [lambda-mvp-jnk](https://github.com/b12n-oss/lambda-mvp-jnk) | The same Lambda demo in jank (native Clojure compiled to native code via C++/Clang/LLVM), deployed as a container image. [Docs](https://b12n-oss.github.io/lambda-mvp-jnk/) |
+| [lambda-mvp-cljs](https://github.com/b12n-oss/lambda-mvp-cljs) | The third sibling: the same demo in ClojureScript on AWS's managed Node runtime, with a real cold/warm comparison across all three. [Docs](https://b12n-oss.github.io/lambda-mvp-cljs/) |
 | [b12n-oss.github.io](https://github.com/b12n-oss/b12n-oss.github.io) | The organization homepage, one hand-written file with no build step. |
 
 ## Documentation
@@ -38,13 +41,18 @@ Most projects here publish through
 they carry no site generator of their own. You write markdown plus a short
 config file, and each site lands at `b12n-oss.github.io/<repo>/`.
 
-Four sites publish that way today: [mcp-tkx](https://b12n-oss.github.io/mcp-tkx/)
+Seven sites publish that way today: [mcp-tkx](https://b12n-oss.github.io/mcp-tkx/)
 (fourteen pages covering getting started, architecture, the 2026-07-28
 stateless revision, kebab-case key handling, and a containerised REPL smoke
 test), [raygui-jnk](https://b12n-oss.github.io/raygui-jnk/),
 [raylib-jnk](https://b12n-oss.github.io/raylib-jnk/), and
 [raylib-clj](https://b12n-oss.github.io/raylib-clj/) -- the last three all
-moved here from a standalone `.b12n.app` domain.
+moved here from a standalone `.b12n.app` domain -- plus the `lambda-mvp-*`
+trio, [jlt](https://b12n-oss.github.io/lambda-mvp-jlt/),
+[jnk](https://b12n-oss.github.io/lambda-mvp-jnk/), and
+[cljs](https://b12n-oss.github.io/lambda-mvp-cljs/): the same AWS Lambda
+demo handler, three different native-Clojure dialects, one real
+cold/warm boot-time comparison across all three.
 
 ## Elsewhere
 
