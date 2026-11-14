@@ -15,8 +15,8 @@
 ---
 
 Where **Burin Choomnuan** publishes open source. Mostly Clojure and
-ClojureScript, with a run of Jolt work alongside it. Libraries and tools built
-for real use first, then written up properly.
+ClojureScript, with a run of Jolt work alongside it. Each library or tool gets
+used first and written up after.
 
 > `b12n` is a numeronym for `burinchoomnuan`: the first letter, the twelve in
 > between, then the last. The same trick as `i18n` and `k8s`.
@@ -26,6 +26,7 @@ for real use first, then written up properly.
 | project | what it is |
 |---|---|
 | [champaca](https://github.com/b12n-oss/champaca) | A Java runtime inside Jolt, rebuilt from Anthony Green's [OpenLDK](https://github.com/atgreen/openldk). Bytecode becomes Chez Scheme the first time a method runs, so Jolt calls Java libraries in-process with no JVM. Experimental. [Docs](https://b12n-oss.github.io/champaca/) |
+| [jonquil](https://github.com/b12n-oss/jonquil) | A DrRacket-style Clojure IDE written in Jolt, porting the idea of [DrClojure](https://github.com/kimtg/DrClojure-Neo): a Definitions editor, an Interactions console, and a Stop that really stops. It runs Jolt in or out of process and attaches to JVM Clojure, ClojureScript, ClojureDart, jank and other nREPL servers such as babashka, some of them still experimental. Agents can drive it over MCP. Alpha. [Site](https://jonquil.b12n.app) |
 | [mcp-tkx](https://github.com/b12n-oss/mcp-tkx) | A Clojure and ClojureScript library for building Model Context Protocol clients and servers. Five protocol revisions, dual-era sessions, and it runs on the JVM, Node and Babashka. [Docs](https://b12n-oss.github.io/mcp-tkx/) |
 
 <details>
@@ -52,15 +53,19 @@ for real use first, then written up properly.
 </details>
 
 <details>
-<summary><b>AWS Lambda, five ways</b>, 5 repos: Jolt, jank, ClojureScript, Rust through Jolt, and Babashka</summary>
+<summary><b>AWS Lambda, seven ways</b>, 7 repos: Jolt, jank, Glojure, ClojureScript (shadow-cljs and Clojurific), Rust through Jolt, and Babashka</summary>
+
+The same demo handler on every runtime, each with a `bench` task for cold and warm boot times against your own AWS account. [The comparison](https://b12n-oss.github.io/lambda-mvp-bb/guide/five-way-comparison.html) puts their numbers side by side.
 
 | project | what it is |
 |---|---|
-| [lambda-mvp-jlt](https://github.com/b12n-oss/lambda-mvp-jlt) | An AWS Lambda custom runtime in Jolt (native Clojure on Chez Scheme), with a bench tool for a cold-vs-warm boot-time comparison against your own AWS account. [Docs](https://b12n-oss.github.io/lambda-mvp-jlt/) |
+| [lambda-mvp-jlt](https://github.com/b12n-oss/lambda-mvp-jlt) | A Lambda custom runtime in Jolt (native Clojure on Chez Scheme), with the Runtime API loop written in Clojure. [Docs](https://b12n-oss.github.io/lambda-mvp-jlt/) |
 | [lambda-mvp-jnk](https://github.com/b12n-oss/lambda-mvp-jnk) | The same Lambda demo in jank (native Clojure compiled to native code via C++/Clang/LLVM), deployed as a container image. [Docs](https://b12n-oss.github.io/lambda-mvp-jnk/) |
-| [lambda-mvp-cljs](https://github.com/b12n-oss/lambda-mvp-cljs) | The same demo in ClojureScript on AWS's managed Node runtime. [Docs](https://b12n-oss.github.io/lambda-mvp-cljs/) |
+| [lambda-mvp-glj](https://github.com/b12n-oss/lambda-mvp-glj) | A custom runtime in Glojure (Clojure hosted on Go), AOT-compiled to one static binary that cold-starts in about 100 ms and runs in 28 MB. [Docs](https://b12n-oss.github.io/lambda-mvp-glj/) |
+| [lambda-mvp-cljs](https://github.com/b12n-oss/lambda-mvp-cljs) | The same demo in ClojureScript on AWS's managed Node runtime, built with shadow-cljs. [Docs](https://b12n-oss.github.io/lambda-mvp-cljs/) |
+| [lambda-mvp-cljrfc](https://github.com/b12n-oss/lambda-mvp-cljrfc) | The cljs demo compiled by Clojurific to ES modules and bundled by Vite instead, so the two compare compilers and nothing else. [Docs](https://b12n-oss.github.io/lambda-mvp-cljrfc/) |
 | [lambda-mvp-rst](https://github.com/b12n-oss/lambda-mvp-rst) | The Jolt runtime again, with its JSON response built by Rust through jolt-diplomat. [Docs](https://b12n-oss.github.io/lambda-mvp-rst/) |
-| [lambda-mvp-bb](https://github.com/b12n-oss/lambda-mvp-bb) | The same demo in Babashka via blambda, the only one of the five shipped as a Lambda Layer. [Docs](https://b12n-oss.github.io/lambda-mvp-bb/) |
+| [lambda-mvp-bb](https://github.com/b12n-oss/lambda-mvp-bb) | The same demo in Babashka via blambda, the only one of the seven shipped as a Lambda Layer. [Docs](https://b12n-oss.github.io/lambda-mvp-bb/) |
 
 </details>
 
@@ -81,7 +86,7 @@ and it joins this table when it goes public.
 Every project above with a docs link publishes through
 [jlt-commons/docs-engine](https://github.com/jlt-commons/docs-engine), so none of them
 carries a site generator of its own. You write markdown plus a short config file, and
-each site lands at `b12n-oss.github.io/<repo>/`. That's fourteen sites today. The
+each site lands at `b12n-oss.github.io/<repo>/`. That's sixteen sites today. The
 largest are [champaca](https://b12n-oss.github.io/champaca/) and
 [mcp-tkx](https://b12n-oss.github.io/mcp-tkx/), at fourteen pages each, and the raylib
 galleries show every example with its recording.
